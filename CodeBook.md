@@ -14,7 +14,7 @@ Variables
 - Y_test: List of activity code test set
 - data_train: Use **cbind()** to add subject_train,Y_train and X_train together
 - data_test: Use **cbind()** to add subject_test,Y_test and X_test together
-- columnnames are added "subjectID", "activity" and the data from names varible
+- columnnames are added "subjectID", "activity" and the data from names variable
 - data: Use **rbind()** to add data_test and data_train together
 - cols <- grep("mean|std", colnames(data))
 
