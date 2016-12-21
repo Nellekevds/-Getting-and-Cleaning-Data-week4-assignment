@@ -1,4 +1,4 @@
-'''{r}
+```{r}
 ################
 ## Assignment Course 3 - Week 4
 ## Petronella Maria Helena van der Steen
@@ -84,4 +84,4 @@ data_tidy <- dcast(df_melt, subjectID + variable ~ activity, mean, margins=FALSE
 
 write.table(data_tidy, "data_tidy.txt",row.name=FALSE)
 
-''''
+```
