@@ -1,7 +1,7 @@
 ```{r}
 ################
 ## Assignment Course 3 - Week 4
-## Petronella Maria Helena van der Steen
+## Nelleke van der Steen
 ## 15-12-2016
 ## happy christmas
 #################
