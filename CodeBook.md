@@ -16,30 +16,12 @@ Variables
 - data_test: Use **cbind()** to add subject_test,Y_test and X_test together
 - columnnames are added "subjectID", "activity" and the data from names variable
 - data: Use **rbind()** to add data_test and data_train together
-- cols <- grep("mean|std", colnames(data))
-
-data_sub <- data[ , c(1,2,cols)]
-
-#### Uses descriptive activity names to name the activities in the data set
-# merges table with acitvity codes and names
-data_add <- merge(data_sub,activitys,by.x="activity",by.y="V1", all=TRUE)
-data_add$activity <- data_add$V2 ## replace names
-data_add <- data_add[ , c(1:81)] ## remove last column
-table(data_add$activity)
-
-#LAYING            SITTING           STANDING            WALKING WALKING_DOWNSTAIRS   WALKING_UPSTAIRS 
-#1944               1777               1906               1722               1406               1544 
-
-####### From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject
-# melt data set with id subjectID and activity
-
-data_melt <- melt(data_add, id=c("subjectID", "activity"))
-df_melt <- data.table(data_melt) ## make data frame
-
-# cast the data set for tidy data
-
-data_tidy <- dcast(df_melt, subjectID + variable ~ activity, mean, margins=FALSE)
-
-### Write the data set to .txt file
-
-write.table(data_tidy, "data_tidy.txt",row.name=FALSE)
+- cols: Selected columns witn 'mean' or 'std' in columnname
+- data_sub: Selection of data from column 1,2 and all columns form cols
+- data_add: The sub selection (data_sub) is merged with activity data on activity code
+- Column with the activity code is replace with activity names
+- data_add: Data with last column removed (column with activity codes)
+- data_melt: Data melted on Subject ID and activity 
+- df_melt: Data frame of data_melt
+- data_tidy: With **dcast** the tidy data is created in a table with subjectID and variable versus activity form the df_melt data frame
+- data is writen to a .txt file
